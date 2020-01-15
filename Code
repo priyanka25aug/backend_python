@@ -1,35 +1,85 @@
+
+import random 
+name = input("What is your name? ")   
+
+print("Good Luck ! ", name) 
+  
+words = ['devendra', 'poonam', 'shyam', 'rekha', 'mukund', 'priyanka', 'rishika', 'dakshita', 'vidya', 'praveen']  
+  
+word = random.choice(words) 
+print("Guess the characters") 
+  
+guesses = '' 
+  
+turns = 10
+  
+  
+while turns > 0: 
+      
+    failed = 0    
+    for char in word:  
+          
+        if char in guesses:  
+            print(char) 
+              
+        else:  
+            print("_")              
+            failed += 1
+              
+  
+    if failed == 0: 
+        print("You Win")          
+        print("The word is: ", word)  
+        break
+      
+    guess = input("guess a character:") 
+    guesses += guess  
+      
+    if guess not in word: 
+          
+        turns -= 1 
+        print("Wrong") 
+          
+        print("You have", + turns, 'more guesses') 
+          
+          
+        if turns == 0: 
+            print("You Loose") 
+
+
+"""
 import random 
 name = input("What is your name dear ?  ")
-print ("Good Luck", name)
+print("Good Luck", name)
 words = ['devendra', 'poonam', 'shyam', 'rekha', 'mukund', 'priyanka', 'rishika', 'dakshita', 'vidya', 'praveen']
 guesses = ''
-turn = 5
+turnsleft = 5
 word = random.choice(words)
+attempt = 0
+failedattempt = 0 
+print("guess one of our family member name")
 
-print ("guess one of our family member name")
 
-
-while turn > 0:
-    failed = 0
-        
+while turnsleft > 0:
+    n = input("guess a char: ")
+    guesses += n
+    
     for char in word:
        if char in guesses:
           print(char)
+          
        else:
           print("_")
-          failed += 1
+          print("Wrong")
+          print("You have" , turnsleft, "more guesses")
+          attempt += 1
+          failedattempt += 1
+          turnsleft-= 1
 
-    if failed ==0:
-            print("you win")
-            print("the word is :", word)
-            break
-        
-    n = input("guess a char: ")
-    guesses+= n
-    if char not in word:
-            turn-= 1
-            print("Wrong")
-            print("You have" , turn, "more guesses")
+            if turnsleft == 0:
+                print("You Loose")   
+    
 
-            if turn == 0:
-                print("You Loose")  
+"""
+
+  
